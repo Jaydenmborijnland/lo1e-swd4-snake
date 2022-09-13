@@ -1,14 +1,24 @@
 const canvas = document.getElementById("snake");
 const ctx = canvas.getContext('2d');
+let snakeX = 200;
+let snakeY = 200;
+
+
+function drawBackground() {
 ctx.fillStyle = 'black';
 ctx.fillRect(0, 0, 400, 400);
-ctx.fillStyle = 'green';
-ctx.fillRect(175, 175, 20, 20);
-
-
-function update() {
-    console.log("update");
+}
+function drawSnake() {
+ctx.fillStyle = 'white';
+ctx.fillRect(snakeX, snakeY, 20, 20);
 }
 
+function update() {
+    snakeX += 20;
 
+    drawBackground();
+    drawSnake();
+}
+drawBackground();
+drawSnake();
 setInterval(update, 1000);
