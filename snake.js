@@ -17,7 +17,9 @@ function update() {
 if(direction == 'right') {
     snakeX += 20;
 } else if (direction == 'left') {
-    snakeX -= 20;
+    if (snakeX > 0) {
+        snakeX -= 20;
+    }
 } else if (direction == "up"){
     snakeY -=20;
 } else if(direction == "down") {
@@ -45,5 +47,5 @@ function ChangeDirection(event){
 }
 drawBackground();
 drawSnake();
-setInterval(update, 1000);
+setInterval(update, 500);
 addEventListener('keydown', ChangeDirection);
