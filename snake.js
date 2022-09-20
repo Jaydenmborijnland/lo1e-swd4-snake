@@ -15,15 +15,30 @@ ctx.fillRect(snakeX, snakeY, 20, 20);
 
 function update() {
 if(direction == 'right') {
-    snakeX += 20;
+    if (snakeX < 380) {
+        snakeX += 20;
+    } else {
+        gameOver();
+    }
 } else if (direction == 'left') {
     if (snakeX > 0) {
         snakeX -= 20;
+    } else {
+        gameOver();
     }
 } else if (direction == "up"){
-    snakeY -=20;
+    if(snakeY > 0) {
+        snakeY -= 20;
+    } else {
+        gameOver();
+    }
+
 } else if(direction == "down") {
-    snakeY += 20;
+    if (snakeY < 380) {
+        snakeY += 20;
+    } else {
+        gameOver();
+    }
 }
 
 
@@ -45,6 +60,13 @@ function ChangeDirection(event){
 
     }
 }
+function gameOver() {
+    direction = null;
+    alert("Game Over");
+}
+
+
+
 drawBackground();
 drawSnake();
 setInterval(update, 500);
