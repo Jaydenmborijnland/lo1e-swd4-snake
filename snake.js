@@ -73,8 +73,8 @@ function update() {
         }
 
     } else if (direction == "down") {
-        if (headY[0].y < 380) {
-            headY[0].y += 20;
+        if (headY < 380) {
+            headY += 20;
         } else {
             gameOver();
         }
