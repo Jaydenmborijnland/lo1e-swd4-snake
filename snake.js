@@ -35,6 +35,7 @@ function drawSnake() {
 }
 
 function update() {
+    
     if (direction == null) {
         return;
     }
@@ -51,22 +52,22 @@ function update() {
     
 
     if (direction == "right") {
-        if (headX[0].x < 380) {
-            headX[0].x += 20;
+        if (headX < 380) {
+            headX += 20;
         } else {
             gameOver();
         }
 
     } else if (direction == "left") {
-        if (headX[0].x > 0) {
-            headX[0].x -= 20;
+        if (headX > 0) {
+            headX -= 20;
         } else {
             gameOver();
         }
 
     } else if (direction == "up") {
-        if (headY[0].y > 0) {
-            headY[0].y -= 20;
+        if (headY > 0) {
+            headY -= 20;
         } else {
             gameOver();
         }
@@ -78,6 +79,8 @@ function update() {
             gameOver();
         }
     }
+
+
     for (let index = 0; index < snake.length; index++) {
        if (snake[index].x == headX && snake[index].y == headY) {
         gameOver();
